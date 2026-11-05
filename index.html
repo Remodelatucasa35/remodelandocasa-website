@@ -1,1 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Remodela tu Casa California — Home remodeling and renovation services. English and Spanish.">
+<meta name="theme-color" content="#173c32">
+<title>Remodela tu Casa California | Home Remodeling</title>
 
+<style>
+:root {
+  --green: #173c32;
+  --green2: #285344;
+  --cream: #f7f4ed;
+  --white: #ffffff;
+  --orange: #c8754e;
+  --ink: #252c28;
+  --muted: #68736c;
+  --line: #e5e5dc;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.container { width: min(1160px, 90%); margin: auto; }
+
+header {
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 14px rgba(0,0,0,.06);
+}
+.nav {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.logo {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1.15;
+}
+.logo span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--orange);
+  margin-top: 5px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-links a:hover { color: var(--orange); }
+.lang {
+  border: 1px solid var(--green);
+  color: var(--green);
+  background: white;
+  padding: 9px 13px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: var(--green);
+}
+
+.hero {
+  background:
+    linear-gradient(90deg, rgba(15,43,35,.94), rgba(15,43,35,.68)),
+    radial-gradient(circle at 75% 35%, #a77c5c, #526b58 45%, #173c32);
+  color: white;
+  padding: 105px 0 110px;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+}
+.hero-content { max-width: 760px; }
+.eyebrow {
+  color: #f0b18d;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.08;
+  margin: 18px 0;
+  letter-spacing: -2px;
+}
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  color: #e5e9e4;
+  margin-bottom: 30px;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 23px;
+  border-radius: 5px;
+  font-weight: 800;
+  transition: .2s;
+  cursor: pointer;
+  border: 0;
+}
+.btn-primary { background: var(--orange); color: white; }
+.btn-primary:hover { background: #b66540; transform: translateY(-2px); }
+.btn-light { border: 1px solid white; color: white; margin-left: 10px; }
+.btn-light:hover { background: white; color: var(--green); }
+
+section { padding: 82px 0; }
+.section-heading { max-width: 700px; margin-bottom: 38px; }
+.section-heading h2 {
+  color: var(--green);
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.15;
+  margin: 10px 0;
+}
+.section-heading p { color: var(--muted); }
+.kicker {
+  color: var(--orange);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service {
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  min-height: 205px;
+  transition: .2s;
+}
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.07);
+}
+.service-icon { font-size: 30px; }
+.service h3 { color: var(--green); margin: 14px 0 7px; }
+.service p { color: var(--muted); font-size: 14px; margin: 0; }
+
+.about {
+  background: var(--green);
+  color: white;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+.about h2 { font-size: clamp(30px, 4vw, 43px); line-height: 1.15; }
+.about p { color: #d8e2dc; }
+.about .kicker { color: #f0b18d; }
+.about-panel {
+  background: linear-gradient(145deg, #355f4d, #244538);
+  padding: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.about-panel h3 { font-size: 23px; margin-top: 0; }
+.about-panel li { margin: 12px 0; color: #e1e9e3; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.gallery-item {
+  min-height: 230px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #d4c6b1, #879889);
+  display: flex;
+  align-items: end;
+  padding: 20px;
+  color: white;
+  font-weight: 800;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-item:nth-child(2) {
+  background: linear-gradient(145deg, #b9a18a, #52695c);
+}
+.gallery-item:nth-child(3) {
+  background: linear-gradient(145deg, #aeb9ae, #6c7868);
+}
+.gallery-item span {
+  background: rgba(20,40,31,.78);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.gallery-note { font-size: 13px; color: var(--muted); margin-top: 15px; }
+
+.process { background: #eeece4; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.step {
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+}
+.step-number {
+  color: var(--orange);
+  font-size: 30px;
+  font-weight: 900;
+}
+.step h3 { color: var(--green); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 45px;
+  align-items: start;
+}
+.contact-info {
+  background: var(--green);
+  color: white;
+  padding: 35px;
+  border-radius: 9px;
+}
+.contact-info h2 { font-size: 32px; line-height: 1.2; }
+.contact-info p { color: #dce5df; }
+.contact-form {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 30px;
+}
+.contact-form h3 { color: var(--green); margin-top: 0; }
+.field { margin-bottom: 17px; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8ddd7;
+  border-radius: 5px;
+  background: #fff;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.notice {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+#form-message { color: var(--orange); font-weight: 700; margin-top: 12px; }
+
+footer {
+  background: #102b23;
+  color: white;
+  padding: 35px 0;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer p { color: #c7d4cc; font-size: 13px; }
+
+@media(max-width:800px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 22px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 8px 15px rgba(0,0,0,.08);
+  }
+  .nav-links.open { display: flex; }
+  .menu-btn { display: block; }
+  .services-grid, .gallery-grid, .steps { grid-template-columns: 1fr 1fr; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:520px) {
+  .hero { padding: 75px 0; }
+  .services-grid, .gallery-grid, .steps { grid-template-columns: 1fr; }
+  .btn-light { margin: 12px 0 0; }
+  section { padding: 60px 0; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">REMODELA TU CASA<span>CALIFORNIA</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+      <a href="#about" data-en="About" data-es="Nosotros">About</a>
+      <a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a>
+      <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+      <button class="lang" id="languageBtn">ESPAÑOL</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-content">
+    <div class="eyebrow" data-en="Your home. Your vision." data-es="Tu hogar. Tu visión.">Your home. Your vision.</div>
+    <h1 data-en="Let's make your house feel like home." data-es="Hagamos que tu casa se sienta como un hogar.">Let's make your house feel like home.</h1>
+    <p data-en="Thoughtful home improvement and remodeling, with attention to the details that make a difference." data-es="Mejoras y remodelaciones para tu hogar, con atención a los detalles que hacen la diferencia.">Thoughtful home improvement and remodeling, with attention to the details that make a difference.</p>
+    <a href="#contact" class="btn btn-primary" data-en="Request an Estimate" data-es="Solicitar una cotización">Request an Estimate</a>
+    <a href="#services" class="btn btn-light" data-en="Explore Services" data-es="Ver servicios">Explore Services</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker" data-en="What we do" data-es="Lo que hacemos">What we do</div>
+      <h2 data-en="Make more of the place you call home." data-es="Aprovecha al máximo el lugar que llamas hogar.">Make more of the place you call home.</h2>
+      <p data-en="Explore the remodeling and home improvement services you may need for your next project." data-es="Conoce las opciones de remodelación y mejoras para tu próximo proyecto.">Explore the remodeling and home improvement services you may need for your next project.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service">
+        <div class="service-icon">🍽️</div>
+        <h3 data-en="Kitchen Remodeling" data-es="Remodelación de cocinas">Kitchen Remodeling</h3>
+        <p data-en="Refresh your kitchen with a layout and finishes that work for your home." data-es="Renueva tu cocina con una distribución y acabados que funcionen para tu hogar.">Refresh your kitchen with a layout and finishes that work for your home.</p>
+      </article>
+      <article class="service">
+        <div class="service-icon">🛁</div>
+        <h3 data-en="Bathroom Remodeling" data-es="Remodelación de baños">Bathroom Remodeling</h3>
+        <p data-en="Create a more comfortable and practical bathroom." data-es="Crea un baño más cómodo y funcional.">Create a more comfortable and practical bathroom.</p>
+      </article>
+      <article class="service">
+        <div class="service-icon">🏠</div>
+        <h3 data-en="Roofing" data-es="Techos y techados">Roofing</h3>
+        <p data-en="Explore roofing improvements and replacement options for your property." data-es="Conoce opciones para mejorar o reemplazar el techo de tu propiedad.">Explore roofing improvements and replacement options for your property.</p>
+      </article>
+      <article class="service">
+        <div class="service-icon">🖌️</div>
+        <h3 data-en="Painting" data-es="Pintura">Painting</h3>
+        <p data-en="Give interior or exterior spaces a fresh new look." data-es="Dale una nueva apariencia a tus espacios interiores o exteriores.">Give interior or exterior spaces a fresh new look.</p>
+      </article>
+      <article class="service">
+        <div class="service-icon">🪵</div>
+        <h3 data-en="Flooring" data-es="Pisos">Flooring</h3>
+        <p data-en="Consider flooring options to complement your space and style." data-es="Descubre opciones de pisos que complementen tu espacio y estilo.">Consider flooring options to complement your space and style.</p>
+      </article>
+      <article class="service">
+        <div class="service-icon">🔨</div>
+        <h3 data-en="Home Renovations" data-es="Renovaciones del hogar">Home Renovations</h3>
+        <p data-en="Plan improvements that help your home better fit your needs." data-es="Planea mejoras para que tu hogar se adapte mejor a tus necesidades.">Plan improvements that help your home better fit your needs.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="kicker" data-en="About us" data-es="Quiénes somos">About us</div>
+      <h2 data-en="A better home starts with a thoughtful plan." data-es="Un mejor hogar comienza con un buen plan.">A better home starts with a thoughtful plan.</h2>
+      <p data-en="Every home and every project is different. Our goal is to help homeowners explore their options, understand the process, and plan improvements with care." data-es="Cada hogar y cada proyecto son diferentes. Nuestro objetivo es ayudar a los propietarios a conocer sus opciones, entender el proceso y planear mejoras con cuidado.">Every home and every project is different. Our goal is to help homeowners explore their options, understand the process, and plan improvements with care.</p>
+    </div>
+    <div class="about-panel">
+      <h3 data-en="Built around your project" data-es="Enfocados en tu proyecto">Built around your project</h3>
+      <ul>
+        <li data-en="Understand your goals and priorities" data-es="Entender tus objetivos y prioridades">Understand your goals and priorities</li>
+        <li data-en="Discuss possible solutions and options" data-es="Conversar sobre posibles soluciones y opciones">Discuss possible solutions and options</li>
+        <li data-en="Plan the next steps together" data-es="Planear juntos los siguientes pasos">Plan the next steps together</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker" data-en="Our work" data-es="Nuestro trabajo">Our work</div>
+      <h2 data-en="Your project could be next." data-es="Tu proyecto podría ser el siguiente.">Your project could be next.</h2>
+      <p data-en="This gallery is ready for photos of your actual projects. We'll add your real before-and-after pictures here." data-es="Esta galería está lista para fotos de tus proyectos reales. Aquí agregaremos imágenes de antes y después.">This gallery is ready for photos of your actual projects. We'll add your real before-and-after pictures here.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><span data-en="Kitchen projects" data-es="Proyectos de cocina">Kitchen projects</span></div>
+      <div class="gallery-item"><span data-en="Bathroom projects" data-es="Proyectos de baño">Bathroom projects</span></div>
+      <div class="gallery-item"><span data-en="Home improvements" data-es="Mejoras del hogar">Home improvements</span></div>
+    </div>
+    <p class="gallery-note" data-en="Illustrative placeholders — replace with real company project photos before launch." data-es="Imágenes provisionales — reemplazar con fotos reales de proyectos antes de publicar.">Illustrative placeholders — replace with real company project photos before launch.</p>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-heading">
+      <div class="kicker" data-en="How it works" data-es="Cómo funciona">How it works</div>
+      <h2 data-en="A clear path from idea to project." data-es="Un camino claro desde la idea hasta el proyecto.">A clear path from idea to project.</h2>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="step-number">01</div>
+        <h3 data-en="Tell us your vision" data-es="Cuéntanos tu idea">Tell us your vision</h3>
+        <p data-en="Share what you would like to improve in your home." data-es="Comparte lo que te gustaría mejorar en tu hogar.">Share what you would like to improve in your home.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">02</div>
+        <h3 data-en="Discuss the details" data-es="Hablemos de los detalles">Discuss the details</h3>
+        <p data-en="Review your needs, priorities, and possible next steps." data-es="Revisamos tus necesidades, prioridades y posibles pasos a seguir.">Review your needs, priorities, and possible next steps.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">03</div>
+        <h3 data-en="Plan your project" data-es="Planea tu proyecto">Plan your project</h3>
+        <p data-en="Move forward with a plan that fits your project." data-es="Avanza con un plan adecuado para tu proyecto.">Move forward with a plan that fits your project.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div class="kicker" style="color:#f0b18d" data-en="Let's talk" data-es="Hablemos">Let's talk</div>
+      <h2 data-en="Ready to discuss your home project?" data-es="¿Listo para hablar de tu proyecto?">Ready to discuss your home project?</h2>
+      <p data-en="Tell us a little about what you have in mind. We can discuss the next steps." data-es="Cuéntanos un poco sobre lo que tienes en mente. Podemos conversar sobre los siguientes pasos.">Tell us a little about what you have in mind. We can discuss the next steps.</p>
+    </div>
+    <form class="contact-form" id="estimateForm">
+      <h3 data-en="Request an Estimate" data-es="Solicitar una cotización">Request an Estimate</h3>
+      <div class="field">
+        <label for="name" data-en="Full name" data-es="Nombre completo">Full name</label>
+        <input id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email" data-en="Email address" data-es="Correo electrónico">Email address</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="phone" data-en="Phone number" data-es="Teléfono">Phone number</label>
+        <input id="phone" name="phone" type="tel">
+      </div>
+      <div class="field">
+        <label for="project" data-en="Type of project" data-es="Tipo de proyecto">Type of project</label>
+        <select id="project" name="project">
+          <option value="" data-en="Select a project" data-es="Selecciona un proyecto">Select a project</option>
+          <option>Kitchen / Cocina</option>
+          <option>Bathroom / Baño</option>
+          <option>Roofing / Techo</option>
+          <option>Painting / Pintura</option>
+          <option>Flooring / Pisos</option>
+          <option>Other / Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="details" data-en="Tell us about your project" data-es="Cuéntanos sobre tu proyecto">Tell us about your project</label>
+        <textarea id="details" name="details"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" data-en="Send Request" data-es="Enviar solicitud">Send Request</button>
+      <p id="form-message" role="status"></p>
+      <p class="notice" data-en="Form preview only. This form is not connected to email yet and does not send or store your information. It must be connected and tested before the site goes live." data-es="Formulario de muestra. Todavía no está conectado al correo y no envía ni guarda tu información. Debe conectarse y probarse antes de publicar el sitio.">Form preview only. This form is not connected to email yet and does not send or store your information. It must be connected and tested before the site goes live.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div>
+      <div class="logo" style="color:white">REMODELA TU CASA<span>CALIFORNIA</span></div>
+      <p data-en="Home improvement and remodeling." data-es="Mejoras y remodelaciones para el hogar.">Home improvement and remodeling.</p>
+    </div>
+    <p>© <span id="year"></span> Remodela tu Casa California. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+  </div>
+</footer>
+
+<script>
+let currentLanguage = "en";
+
+function setLanguage(language) {
+  currentLanguage = language;
+  document.documentElement.lang = language;
+  document.querySelectorAll("[data-en]").forEach(element => {
+    element.textContent = element.dataset[language];
+  });
+  document.getElementById("languageBtn").textContent =
+    language === "en" ? "ESPAÑOL" : "ENGLISH";
+}
+
+document.getElementById("languageBtn").addEventListener("click", () => {
+  setLanguage(currentLanguage === "en" ? "es" : "en");
+});
+
+document.getElementById("menuBtn").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("open");
+  });
+});
+
+document.getElementById("estimateForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const message = currentLanguage === "en"
+    ? "Thank you! This form is a preview and is not connected yet. Your information has not been sent."
+    : "¡Gracias! Este formulario es una muestra y todavía no está conectado. Tu información no ha sido enviada.";
+  document.getElementById("form-message").textContent = message;
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
