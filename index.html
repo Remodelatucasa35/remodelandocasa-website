@@ -163,8 +163,10 @@ section { padding: 82px 0; }
   box-shadow: 0 12px 28px rgba(0,0,0,.07);
 }
 .service-icon { font-size: 30px; }
+.service-photo { width: 100%; height: 150px; object-fit: cover; display: block; border-radius: 5px; margin-bottom: 16px; }
 .service h3 { color: var(--green); margin: 14px 0 7px; }
 .service p { color: var(--muted); font-size: 14px; margin: 0; }
+.services-note { color: var(--muted); font-size: 12px; margin-top: 18px; }
 
 .about {
   background: var(--green);
@@ -383,7 +385,18 @@ footer p { color: #c7d4cc; font-size: 13px; }
         <h3 data-en="Home Renovations" data-es="Renovaciones del hogar">Home Renovations</h3>
         <p data-en="Plan improvements that help your home better fit your needs." data-es="Planea mejoras para que tu hogar se adapte mejor a tus necesidades.">Plan improvements that help your home better fit your needs.</p>
       </article>
+      <article class="service">
+        <img class="service-photo" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Illustrative finished interior living space">
+        <h3 data-en="Garage Conversions" data-es="Conversión de garajes">Garage Conversions</h3>
+        <p data-en="Transform unused garage space into beautiful, functional living areas." data-es="Transformamos garajes sin uso en espacios habitables, cómodos y funcionales.">Transform unused garage space into beautiful, functional living areas.</p>
+      </article>
+      <article class="service">
+        <img class="service-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Illustrative modern residential exterior">
+        <h3 data-en="ADU Construction" data-es="Construcción de ADU">ADU Construction</h3>
+        <p data-en="Build accessory dwelling units and additional living spaces to make the most of your property." data-es="Construimos unidades de vivienda adicionales (ADU) para aprovechar al máximo su propiedad.">Build accessory dwelling units and additional living spaces to make the most of your property.</p>
+      </article>
     </div>
+    <p class="services-note" data-en="Photos are illustrative stock images and do not represent completed company projects." data-es="Las fotos son imágenes ilustrativas de archivo y no representan proyectos terminados por la empresa.">Photos are illustrative stock images and do not represent completed company projects.</p>
   </div>
 </section>
 
@@ -477,6 +490,8 @@ footer p { color: #c7d4cc; font-size: 13px; }
           <option>Roofing / Techo</option>
           <option>Painting / Pintura</option>
           <option>Flooring / Pisos</option>
+          <option data-en="Garage Conversion" data-es="Conversión de garaje">Garage Conversion</option>
+          <option data-en="ADU Construction" data-es="Construcción de ADU">ADU Construction</option>
           <option>Other / Otro</option>
         </select>
       </div>
